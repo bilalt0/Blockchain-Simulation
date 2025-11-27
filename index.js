@@ -1,6 +1,6 @@
 
 import Blockchain from './blockchain.js';
-import Block from './block';
+import Block from './block.js';
 
 const myChain = new Blockchain()
 
