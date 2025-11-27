@@ -1,7 +1,8 @@
 
-const Block = require('./block');
+import Block from "./block";
 
-class Blockchain {
+export default class Blockchain {
+
     constructor() {
         this.chain = [this.createGenesisBlock()];
     }
@@ -24,5 +25,3 @@ class Blockchain {
         console.log(JSON.stringify(this.chain, null, 4));
     }
 }
-
-module.exports = Blockchain;
