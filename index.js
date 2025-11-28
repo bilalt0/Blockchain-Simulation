@@ -1,43 +1,48 @@
-import readline from 'readline';
+import { select, input } from '@inquirer/prompts';
 import Blockchain from './blockchain.js';
 import Block from './block.js';
 
 const myChain = new Blockchain();
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-function showMenu() {
+async function showMenu() {
     console.log('\n--- Blockchain Menu ---');
-    console.log('1. Create New Block');
-    console.log('2. View All Blocks');
-    console.log('3. Exit');
-    rl.question('Select an option: ', handleOption);
+    const option = await select({
+        message: 'Select an option:',
+        choices: [
+            {
+                name: 'Create New Block',
+                value: 'Create New Block'
+            },
+            {
+                name: 'View All Blocks',
+                value: 'View All Blocks'
+            },
+            {
+                name: 'Exit',
+                value: 'Exit'
+            }
+        ]
+    });
+
+    await handleOption(option);
 }
 
-function handleOption(option) {
-    switch (option.trim()) {
-        case '1':
-            rl.question('Enter block data: ', (data) => {
-                const nextIndex = myChain.chain.length;
-                myChain.addBlock(new Block(nextIndex, data));
-                console.log('Block added successfully!');
-                showMenu();
-            });
+async function handleOption(option) {
+    switch (option) {
+        case 'Create New Block':
+            const data = await input({ message: 'Enter block data:' });
+            const nextIndex = myChain.chain.length;
+            myChain.addBlock(new Block(nextIndex, data));
+            console.log('Block added successfully!');
+            await showMenu();
             break;
-        case '2':
+        case 'View All Blocks':
             myChain.viewChain();
-            showMenu();
+            await showMenu();
             break;
-        case '3':
+        case 'Exit':
             console.log('Exiting...');
-            rl.close();
-            break;
-        default:
-            console.log('Invalid option, please try again.');
-            showMenu();
+            process.exit(0);
             break;
     }
 }
