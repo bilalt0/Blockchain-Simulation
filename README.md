@@ -1,37 +1,36 @@
-# Simple Blockchain Simulation
+ # Basit Blockchain Simülasyonu
 
-This project is a simple simulation of a blockchain implemented in JavaScript. It demonstrates the fundamental concepts of how a blockchain works, including block creation, hashing, and linking blocks together.
+Bu proje, JavaScript ile oluşturulmuş basit bir blokzincir simülasyonudur. Blockchain’in temel çalışma mantığını anlamak için hazırlanmıştır. Blok oluşturma, hashing (özetleme) ve blokların birbirine bağlanması gibi temel prensipleri gösterir.
 
-## Features
+# Özellikler
 
-- **Genesis Block**: Automatically creates the first block in the chain.
-- **Block Structure**: Each block contains an index, timestamp, data, previous hash, and its own hash.
-- **Integrity**: Uses SHA-256 for hashing to ensure data integrity.
-- **Interactive Menu**: A command-line interface to interact with the blockchain.
-  - Create new blocks with custom data.
-  - View the entire blockchain.
+**Genesis (İlk) Blok**: Zincirdeki ilk blok otomatik olarak oluşturulur.
+**Blok Yapısı**: Her blok; index, zaman damgası (timestamp), veri (data), bir önceki bloğun hash’i ve kendi hash’ini içerir.
+**Bütünlük Kontrolü**: SHA-256 algoritması kullanılarak verilerin değiştirilmediği doğrulanır.
+**Etkileşimli Menü**: Komut satırı üzerinden blokzincir ile etkileşim kurmanızı sağlar.
+- Özel veri girerek yeni blok oluşturabilirsiniz.
+- Tüm blockchain’i görüntüleyebilirsiniz.
 
-## Getting Started
+## Başlangıç
+## Gereksinimler
 
-### Prerequisites
+- Bilgisayarınızda Node.js kurulu olmalıdır.
 
-- Node.js installed on your machine.
+# Kurulum
 
-### Installation
+1. Depoyu (repository) klonlayın.
+2. Proje klasörüne girin.
+3. Bağımlılıkları yükleyin:
+  '''bash
+  npm install
+  '''
 
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+### Kullanım
 
-### Usage
+Uygulamayı çalıştırmak için:
 
-Run the application:
-
-```bash
+'''bash
 node index.js
-```
+'''
 
-Follow the on-screen menu to add blocks or view the chain.
+Ekranda çıkan menüyü takip ederek yeni bloklar ekleyebilir veya zinciri görüntüleyebilirsiniz.
